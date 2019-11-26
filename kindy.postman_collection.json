@@ -1,0 +1,181 @@
+{
+	"info": {
+		"_postman_id": "36ac9333-ae0f-4f9c-9f93-5788e74cec4d",
+		"name": "kindy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create New USer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "first_name",
+							"value": "Ibrahim",
+							"type": "text"
+						},
+						{
+							"key": "avatar",
+							"type": "file",
+							"src": "/home/mrkindy/Desktop/المنوفية/11903938_910167165743285_3407937551675455255_n.jpg"
+						},
+						{
+							"key": "last_name",
+							"value": "Abotaleb",
+							"type": "text"
+						},
+						{
+							"key": "country_code",
+							"value": "EG",
+							"type": "text"
+						},
+						{
+							"key": "phone_number",
+							"value": "+201090730089",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "male",
+							"type": "text"
+						},
+						{
+							"key": "birthdate",
+							"value": "2008-02-18",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate User Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "phone_number",
+							"value": "+201090730088",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "fackpasswordfield",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/auth/generateToken",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"generateToken"
+					]
+				},
+				"description": "generate auth token\nphone number \"required\"\npassword \"fake field\""
+			},
+			"response": []
+		},
+		{
+			"name": "storeStatus",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NzI3OTM3OTAsImlkIjo1LCJwaG9uZV9udW1iZXIiOiIrMjAxMDkwNzMwMDg4IiwiaWF0IjoxNTcyNzA3MzkwfQ.ysSndbQb5cmAtT0PRdleH-Fp_XhnIVAH8wbXnR0tjnk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "status",
+							"value": "busy",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/user/storeStatus",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"storeStatus"
+					]
+				},
+				"description": "send token in auth header\nsend status in body"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
